@@ -16,7 +16,7 @@
 
 **react-component-form** is a lightweight form component for [React.js](https://reactjs.org/), it allows you to get the inputs values without state with onChange or onSubmit props.
 
-You can test the library with this link : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
+Demo : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
 
 ## 💾 Install
 
