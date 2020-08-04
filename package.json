@@ -2,15 +2,29 @@
   "name": "react-component-form",
   "version": "1.0.0",
   "description": "Manage React Forms with ease.",
-  "author": "Divlo",
+  "author": "Divlo <contact@divlo.fr>",
   "license": "MIT",
-  "repository": "Divlo/react-component-form",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
   "engines": {
     "node": ">=10"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Divlo/react-component-form.git"
+  },
+  "keywords": [
+    "react-form",
+    "react-component-form"
+  ],
+  "bugs": {
+    "url": "https://github.com/Divlo/react-component-form/issues"
+  },
+  "homepage": "https://github.com/Divlo/react-component-form#readme",
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -56,8 +70,5 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "typescript": "^3.7.5"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }
