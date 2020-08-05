@@ -14,7 +14,7 @@
 
 ## 📜 About
 
-**react-component-form** is a lightweight form component for [React.js](https://reactjs.org/), it allows you to get the inputs values without state with onChange or onSubmit props.
+**react-component-form** is a lightweight form component for [React.js](https://reactjs.org/), it allows you to get the inputs values without state thanks to `onChange` or `onSubmit` props.
 
 Demo : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
 
@@ -45,12 +45,14 @@ const Example = () => {
 }
 ```
 
+_Note : The example use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
+
 Basically you have access to the same props of the HTML `form` tag in React, but the onSubmit and the onChange props are differents.
 
-Instead to get the `event` params you get `formData` and `formElement` :
+Instead to get the `event` param you get `formData` and `formElement` params :
 
-- `formData`: It's an object where the keys are the name of your inputs and the current value. Behind the scene, it uses the `FormData` constructor.
-- `formElement`: It's the actual HTML form element in the DOM so for example you can access the `.reset()` method on a `HTMLFormElement`.
+- `formData`: It's an object where the keys are the name of your inputs and the current value. Behind the scene, it uses the [FormData](https://developer.mozilla.org/docs/Web/API/FormData) constructor.
+- `formElement`: It's the actual HTML form element in the DOM so for example you can access the `.reset()` method on a [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
 
 ## 📄 License
 

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { fromEntries } from './fromEntries'
 
 export interface FormDataObject {
   [key: string]: FormDataEntryValue
@@ -20,7 +21,7 @@ interface FormProps extends ReactFormProps {
 }
 
 const getFormDataObject = (formElement: HTMLFormElement): FormDataObject => {
-  return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
+  return fromEntries<FormDataEntryValue>(new FormData(formElement))
 }
 
 const Form = (props: FormProps): JSX.Element => {
