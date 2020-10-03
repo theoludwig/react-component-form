@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <a href="https://gitmoji.carloscuesta.me/"><img src="https://camo.githubusercontent.com/2a4924a23bd9ef18afe793f4999b1b9ec474e48f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6769746d6f6a692d253230f09f989c253230f09f988d2d4646444436372e7376673f7374796c653d666c61742d737175617265" alt="Gitmoji"/></a>
   <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="JavaScript Style Guide"/></a>
+  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" /></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/licence-MIT-blue.svg" alt="Licence MIT"/></a>
   <a href="https://www.npmjs.com/package/react-component-form"><img src="https://img.shields.io/npm/v/react-component-form.svg" alt="npm version"></a>
   <img src="https://github.com/Divlo/react-component-form/workflows/Node.js%20CI/badge.svg" alt="Node.js CI" />
@@ -18,9 +18,11 @@
 
 Demo : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
 
+This project was bootstrapped with [create-react-library](https://www.npmjs.com/package/create-react-library).
+
 ## 💾 Install
 
-```bash
+```sh
 npm install --save react-component-form
 ```
 

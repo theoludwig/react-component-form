@@ -23,3 +23,4 @@ jobs:
       - run: npm ci
       - run: npm run test:build
       - run: npm run test:lint
+      - run: npm run test:unit
