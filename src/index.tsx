@@ -8,9 +8,7 @@ export interface FormDataObject {
 export type HandleForm = (
   formData: FormDataObject,
   formElement: HTMLFormElement
-) => void
-
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+) => void | Promise<void>
 
 interface ReactFormProps
   extends Omit<React.HTMLProps<HTMLFormElement>, 'onSubmit' | 'onChange'> {}
@@ -28,18 +26,18 @@ const Form = (props: FormProps): JSX.Element => {
   const { onSubmit, onChange, children, ...rest } = props
   const formRef = useRef<HTMLFormElement>(null)
 
-  const handleSubmit = (event: React.FormEvent): void => {
+  const handleSubmit = async (event: React.FormEvent): Promise<void> => {
     event.preventDefault()
     if (onSubmit != null) {
       const formData = getFormDataObject(formRef.current as HTMLFormElement)
-      onSubmit(formData, formRef.current as HTMLFormElement)
+      await onSubmit(formData, formRef.current as HTMLFormElement)
     }
   }
 
-  const handleChange = (): void => {
+  const handleChange = async (): Promise<void> => {
     if (onChange != null) {
       const formData = getFormDataObject(formRef.current as HTMLFormElement)
-      onChange(formData, formRef.current as HTMLFormElement)
+      await onChange(formData, formRef.current as HTMLFormElement)
     }
   }
 
