@@ -1,3 +1,4 @@
+//eslint-disable-next-line
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Form, { HandleForm } from 'react-component-form'

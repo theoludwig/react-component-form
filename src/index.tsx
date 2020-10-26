@@ -1,4 +1,6 @@
+// eslint-disable-next-line
 import React, { useRef } from 'react'
+import 'polyfill-object.fromentries'
 
 export interface FormDataObject {
   [key: string]: FormDataEntryValue
