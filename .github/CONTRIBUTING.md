@@ -2,14 +2,14 @@
 
 Thanks a lot for your interest in contributing to **react-component-form**! 🎉
 
-## Types of contributions :
+## Types of contributions
 
 - Reporting a bug.
 - Suggest a new feature idea.
 - Correct spelling errors, improvements or additions to documentation files (README, CONTRIBUTING...).
 - Improve structure/format/performance/refactor/tests of the code.
 
-## Pull Requests :
+## Pull Requests
 
 - **Please first discuss** the change you wish to make via [issue](https://github.com/Divlo/react-component-form/issues) before making a change. It might avoid a waste of your time.
 
