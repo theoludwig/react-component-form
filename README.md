@@ -14,6 +14,7 @@
   <a href="https://github.com/Divlo/react-component-form/actions/workflows/test.yml"><img src="https://github.com/Divlo/react-component-form/actions/workflows/test.yml/badge.svg?branch=master" /></a>
   <br />
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" /></a>
+  <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release" /></a>
   <a href="https://www.npmjs.com/package/react-component-form"><img src="https://img.shields.io/npm/v/react-component-form.svg" alt="npm version"></a>
 </p>
 

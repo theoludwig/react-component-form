@@ -1,6 +1,6 @@
 {
   "name": "react-component-form",
-  "version": "1.3.0",
+  "version": "0.0.0-development",
   "description": "Manage React Forms with ease.",
   "author": "Divlo <contact@divlo.fr>",
   "license": "MIT",
@@ -32,7 +32,8 @@
     "lint:commit": "commitlint",
     "lint:editorconfig": "editorconfig-checker",
     "lint:markdown": "markdownlint '**/*.md' --dot --ignore node_modules",
-    "lint:typescript": "tsdx lint"
+    "lint:typescript": "tsdx lint",
+    "release": "semantic-release"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -47,6 +48,7 @@
     "markdownlint-cli": "0.27.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "semantic-release": "17.4.4",
     "tsdx": "0.14.1",
     "typescript": "4.3.3"
   }
