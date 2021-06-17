@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import React, { useRef } from 'react'
 import 'polyfill-object.fromentries'
 

@@ -1,10 +1,9 @@
-//eslint-disable-next-line
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Form, { HandleForm } from 'react-component-form'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import Form, { HandleForm } from '../.'
 
-import GithubLogo from './github.jpg'
 import './index.css'
+import GitHubLogo from 'url:./github.jpg'
 
 const App = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
@@ -20,7 +19,7 @@ const App = () => {
   return (
     <div className='container'>
       <h2>{'<Form />'}</h2>
-      <h5 className='title-install'>npm i react-component-form</h5>
+      <h5 className='title-install'>npm install --save react-component-form</h5>
 
       <Form onSubmit={handleSubmit} onChange={handleChange}>
         <div className='form-group'>
@@ -54,7 +53,7 @@ const App = () => {
           rel='noopener noreferrer'
           href='https://github.com/Divlo/react-component-form'
         >
-          <img width='30px' alt='github' src={GithubLogo} />
+          <img width='30px' alt='github' src={GitHubLogo} />
         </a>
       </div>
     </div>

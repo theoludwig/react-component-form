@@ -1,27 +1,33 @@
-# Contributing
+# 💡 Contributing
 
 Thanks a lot for your interest in contributing to **react-component-form**! 🎉
+
+## Code of Conduct
+
+**react-component-form** has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it. Please read [the full text](./CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ## Types of contributions
 
 - Reporting a bug.
 - Suggest a new feature idea.
-- Correct spelling errors, improvements or additions to documentation files (README, CONTRIBUTING...).
+- Correct spelling errors, improvements or additions to documentation files.
 - Improve structure/format/performance/refactor/tests of the code.
 
 ## Pull Requests
 
-- **Please first discuss** the change you wish to make via [issue](https://github.com/Divlo/react-component-form/issues) before making a change. It might avoid a waste of your time.
+- **Please first discuss** the change you wish to make via issues.
 
-- Ensure your code respect [JavaScript Standard Style](https://standardjs.com/).
+- Ensure your code respect the linter.
 
-- Make sure your code passes the tests.
+- Make sure your **code passes the tests**.
 
 If you're adding new features to **react-component-form**, please include tests.
 
 ## Commits
 
-The commit message guidelines respect [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) and [Semantic Versioning](https://semver.org/) for releases.
+The commit message guidelines respect
+[@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional)
+and [Semantic Versioning](https://semver.org/) for releases.
 
 ### Types
 
@@ -44,16 +50,3 @@ Types define which kind of changes you made to the project.
 ### Scopes
 
 Scopes define what part of the code changed.
-
-There are 2 principal scopes in the project :
-
-- lib
-- example
-
-### Examples
-
-```sh
-git commit -m "feat(lib): add Form component"
-git commit -m "docs(readme): update installation process"
-git commit -m "fix(example): remove bugs"
-```

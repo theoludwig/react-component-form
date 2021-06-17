@@ -1,10 +1,11 @@
 import React from 'react'
-import Form, { HandleForm } from '.'
 import { render, cleanup, fireEvent } from '@testing-library/react'
+
+import Form, { HandleForm } from '../src'
 
 afterEach(cleanup)
 
-describe('Form component', () => {
+describe('<Form />', () => {
   it('should get the formData and formElement onSubmit and onChange', () => {
     let formData: { [k: string]: any } = {}
     let formElement: any = null

@@ -1,0 +1,33 @@
+name: 'Release'
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+
+      - name: 'Use Node.js'
+        uses: 'actions/setup-node@v2.1.5'
+        with:
+          node-version: '14.x'
+
+      - run: 'npm install --global npm@7'
+
+      - name: 'Install'
+        run: 'npm ci'
+
+      - name: 'Build Package'
+        run: 'npm run build'
+
+      - name: 'Build Example'
+        run: 'cd example && npm ci && npm run build'
+
+      - name: 'Deploy Example'
+        uses: 'JamesIves/github-pages-deploy-action@4.1.4'
+        with:
+          branch: 'gh-pages'
+          folder: 'dist'
