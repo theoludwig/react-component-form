@@ -23,8 +23,6 @@
 
 Demo : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
 
-This project was bootstrapped with [create-react-library](https://www.npmjs.com/package/create-react-library).
-
 ## 💾 Install
 
 ```sh
@@ -35,7 +33,7 @@ npm install --save react-component-form
 
 ```tsx
 import React from 'react'
-import Form, { HandleForm } from 'react-component-form'
+import { Form, HandleForm } from 'react-component-form'
 
 const Example = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
@@ -60,6 +58,13 @@ Instead to get the `event` param you get `formData` and `formElement` params :
 
 - `formData`: It's an object where the keys are the name of your inputs and the current value. Behind the scene, it uses the [FormData](https://developer.mozilla.org/docs/Web/API/FormData) constructor.
 - `formElement`: It's the actual HTML form element in the DOM so for example you can access the `.reset()` method on a [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
+
+## 💡 Contributing
+
+Anyone can help to improve the project, submit a Feature Request, a bug report or
+even correct a simple spelling mistake.
+
+The steps to contribute can be found in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## 📄 License
 

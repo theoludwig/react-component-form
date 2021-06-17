@@ -22,7 +22,7 @@ const getFormDataObject = (formElement: HTMLFormElement): FormDataObject => {
   return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
 }
 
-const Form = (props: FormProps): JSX.Element => {
+export const Form = (props: FormProps): JSX.Element => {
   const { onSubmit, onChange, children, ...rest } = props
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -52,5 +52,3 @@ const Form = (props: FormProps): JSX.Element => {
     </form>
   )
 }
-
-export default Form

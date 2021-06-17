@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import Form, { HandleForm } from '../.'
+import { Form, HandleForm } from '../.'
 
 import './index.css'
 import GitHubLogo from 'url:./github.jpg'
