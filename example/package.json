@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url '/react-component-form/'"
   },
   "alias": {
     "react": "../node_modules/react",
