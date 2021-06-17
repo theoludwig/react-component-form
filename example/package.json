@@ -6,9 +6,9 @@
     "start": "parcel index.html",
     "build": "parcel build index.html --public-url '/react-component-form/'"
   },
-  "alias": {
-    "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom/profiling"
+  "dependencies": {
+    "react": "file:../node_modules/react",
+    "react-dom": "file:../node_modules/react-dom"
   },
   "devDependencies": {
     "@parcel/transformer-image": "2.0.0-beta.2",
