@@ -17,7 +17,9 @@ export interface FormProps extends ReactFormProps {
   onChange?: HandleForm
 }
 
-export const getFormDataObject = (formElement: HTMLFormElement): FormDataObject => {
+export const getFormDataObject = (
+  formElement: HTMLFormElement
+): FormDataObject => {
   return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
 }
 
