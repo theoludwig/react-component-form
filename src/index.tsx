@@ -10,15 +10,15 @@ export type HandleForm = (
   formElement: HTMLFormElement
 ) => void | Promise<void>
 
-interface ReactFormProps
+export interface ReactFormProps
   extends Omit<React.HTMLProps<HTMLFormElement>, 'onSubmit' | 'onChange'> {}
 
-interface FormProps extends ReactFormProps {
+export interface FormProps extends ReactFormProps {
   onSubmit?: HandleForm
   onChange?: HandleForm
 }
 
-const getFormDataObject = (formElement: HTMLFormElement): FormDataObject => {
+export const getFormDataObject = (formElement: HTMLFormElement): FormDataObject => {
   return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
 }
 
