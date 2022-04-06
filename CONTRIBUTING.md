@@ -17,7 +17,7 @@ Thanks a lot for your interest in contributing to **react-component-form**! 🎉
 
 - **Please first discuss** the change you wish to make via issues.
 
-- Ensure your code respect the linter.
+- Ensure your code respect linting.
 
 - Make sure your **code passes the tests**.
 

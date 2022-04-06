@@ -1,11 +1,13 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Form, HandleForm } from '../.'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import { Form, HandleForm } from 'react-component-form'
 
 import './index.css'
 import GitHubLogo from 'url:./github.jpg'
 
-const App = () => {
+global.React = React
+
+const App: React.FC = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
     console.clear()
     console.log('onSubmit: ', formData)
@@ -60,4 +62,6 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container)
+root.render(<App />)

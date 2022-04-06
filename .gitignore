@@ -1,6 +1,39 @@
-*.log
-.DS_Store
+# dependencies
 node_modules
-.cache
+.npm
+
+# production
+build
 dist
+
+# testing
+coverage
+.nyc_output
+
+# envs
+.env
+.env.production
+
+# debug
+npm-debug.log*
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+.DS_Store
 .parcel-cache
+.cache

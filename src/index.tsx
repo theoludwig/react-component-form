@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 
 export interface FormDataObject {
   [key: string]: FormDataEntryValue
@@ -23,7 +23,7 @@ export const getFormDataObject = (
   return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
 }
 
-export const Form = (props: FormProps): JSX.Element => {
+export const Form: React.FC<FormProps> = (props) => {
   const { onSubmit, onChange, children, ...rest } = props
   const formRef = useRef<HTMLFormElement>(null)
 
