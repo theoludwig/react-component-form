@@ -5,8 +5,6 @@ import { Form, HandleForm } from 'react-component-form'
 import './index.css'
 import GitHubLogo from 'url:./github.jpg'
 
-global.React = React
-
 const App: React.FC = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
     console.clear()

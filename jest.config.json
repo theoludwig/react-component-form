@@ -1,7 +1,6 @@
 {
   "testEnvironment": "jsdom",
   "rootDir": "./src",
-  "setupFilesAfterEnv": ["<rootDir>/__test__/setup.ts"],
   "transform": {
     "^.+\\.tsx?$": "esbuild-jest"
   }
