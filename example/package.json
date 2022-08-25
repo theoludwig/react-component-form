@@ -8,14 +8,15 @@
   },
   "dependencies": {
     "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "react-component-form": "file:.."
+    "react-component-form": "file:..",
+    "react-dom": "file:../node_modules/react-dom"
   },
   "devDependencies": {
     "@parcel/transformer-image": "2.7.0",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "parcel": "2.7.0",
+    "process": "^0.11.10",
     "typescript": "4.7.4"
   }
 }

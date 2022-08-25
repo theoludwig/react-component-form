@@ -3,7 +3,8 @@ import Ajv from 'ajv'
 
 export const ajv = addFormats(
   new Ajv({
-    allErrors: true
+    allErrors: true,
+    verbose: true
   }),
   [
     'date-time',

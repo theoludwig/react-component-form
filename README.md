@@ -41,7 +41,7 @@ import React from 'react'
 import { Form } from 'react-component-form'
 import type { HandleForm } from 'react-component-form'
 
-const Example = () => {
+export const Example = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
     console.log(formData) // { inputName: 'value of the input' }
     formElement.reset()
@@ -72,27 +72,30 @@ You can see a more detailled example in the [./example](./example) folder.
 ```tsx
 import React from 'react'
 import { Form, useForm } from 'react-component-form'
-import type { HandleSubmitCallback } from 'react-component-form'
+import type { HandleUseFormCallback } from 'react-component-form'
 
 const schema = {
   inputName: {
     type: 'string',
-    required: true,
     minLength: 3,
-    maxLength: 10
+    maxLength: 20
   }
 }
 
-const Example = () => {
-  const { errors, handleSubmit } = useForm(schema)
+export const Example = () => {
+  const { errors, handleUseForm } = useForm(schema)
 
-  const onSubmit: HandleSubmitCallback<typeof schema> = (formData, formElement) => {
-    console.log(formData) // { inputName: 'value of the input' }
+  const onSubmit: HandleUseFormCallback<typeof schema> = (
+    formData,
+    formElement
+  ) => {
+    console.log(formData) // { inputName: 'value of the input validated' }
     formElement.reset()
+    return null
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleUseForm(onSubmit)}>
       <input type='text' name='inputName' />
       {errors.inputName != null && <p>{errors.inputName[0].message}</p>}
 

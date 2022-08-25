@@ -1,65 +1,38 @@
-import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Form, HandleForm } from 'react-component-form'
+import React from 'react'
+import { Form, useForm } from 'react-component-form'
+import type { HandleUseFormCallback } from 'react-component-form'
 
-import './index.css'
-import GitHubLogo from 'url:./github.jpg'
-
-const App: React.FC = () => {
-  const handleSubmit: HandleForm = (formData, formElement) => {
-    console.clear()
-    console.log('onSubmit: ', formData)
-    formElement.reset()
+const schema = {
+  inputName: {
+    type: 'string',
+    minLength: 3,
+    maxLength: 20
   }
+}
 
-  const handleChange: HandleForm = (formData) => {
-    console.log('onChange: ', formData)
+export const Example = () => {
+  const { errors, handleUseForm } = useForm(schema)
+
+  const onSubmit: HandleUseFormCallback<typeof schema> = (
+    formData,
+    formElement
+  ) => {
+    console.log(formData) // { inputName: 'value of the input validated' }
+    formElement.reset()
+    return null
   }
 
   return (
-    <div className='container'>
-      <h2>{'<Form />'}</h2>
-      <h5 className='title-install'>npm install --save react-component-form</h5>
+    <Form onSubmit={handleUseForm(onSubmit)}>
+      <input type='text' name='inputName' />
+      {errors.inputName != null && <p>{errors.inputName[0].message}</p>}
 
-      <Form onSubmit={handleSubmit} onChange={handleChange}>
-        <div className='form-group'>
-          <label htmlFor='name'>Name :</label>
-          <input
-            className='form-control'
-            type='text'
-            name='name'
-            id='name'
-            placeholder='name'
-          />
-        </div>
-
-        <button type='submit' className='btn btn-primary'>
-          Submit
-        </button>
-      </Form>
-
-      <div className='result-container'>
-        <h4>
-          Try the form and Inspect the console{' '}
-          <span role='img' aria-label='smiley'>
-            😃
-          </span>
-        </h4>
-      </div>
-
-      <div className='github-logo'>
-        <a
-          target='_blank'
-          rel='noopener noreferrer'
-          href='https://github.com/Divlo/react-component-form'
-        >
-          <img width='30px' alt='github' src={GitHubLogo} />
-        </a>
-      </div>
-    </div>
+      <button type='submit'>Submit</button>
+    </Form>
   )
 }
 
 const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)
-root.render(<App />)
+root.render(<Example />)

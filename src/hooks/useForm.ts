@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Static, TObject, TProperties, Type } from '@sinclair/typebox'
+import { SchemaOptions, Static, TObject, Type } from '@sinclair/typebox'
 import type { ErrorObject } from 'ajv'
 
 import type { HandleForm } from '../components/Form'
@@ -8,19 +8,21 @@ import { ajv } from '../utils/ajv'
 import { handleCheckboxBoolean } from '../utils/handleCheckboxBoolean'
 import { handleOptionalEmptyStringToNull } from '../utils/handleOptionalEmptyStringToNull'
 
+export type Schema = SchemaOptions
+
 export type Error = ErrorObject
 
-export type ErrorsObject<K extends TProperties> = {
+export type ErrorsObject<K extends Schema> = {
   [key in keyof Partial<K>]: Error[] | undefined
 }
 
-export type HandleSubmitCallback<K extends TProperties> = (
+export type HandleUseFormCallback<K extends Schema> = (
   formData: Static<TObject<K>>,
   formElement: HTMLFormElement
-) => Promise<Message<K> | null>
+) => Promise<Message<K> | null> | Message<K> | null
 
-export type HandleSubmit<K extends TProperties> = (
-  callback: HandleSubmitCallback<K>
+export type HandleUseForm<K extends Schema> = (
+  callback?: HandleUseFormCallback<K>
 ) => HandleForm
 
 export interface GlobalMessage {
@@ -29,18 +31,16 @@ export interface GlobalMessage {
   properties?: undefined
 }
 
-export interface PropertiesMessage<K extends TProperties> {
+export interface PropertiesMessage<K extends Schema> {
   type: 'error'
   value?: string
   properties: { [key in keyof Partial<K>]: string }
 }
 
-export type Message<K extends TProperties> =
-  | GlobalMessage
-  | PropertiesMessage<K>
+export type Message<K extends Schema> = GlobalMessage | PropertiesMessage<K>
 
-export interface UseFormResult<K extends TProperties> {
-  handleSubmit: HandleSubmit<K>
+export interface UseFormResult<K extends Schema> {
+  handleUseForm: HandleUseForm<K>
 
   readonly fetchState: FetchState
   setFetchState: React.Dispatch<React.SetStateAction<FetchState>>
@@ -61,7 +61,7 @@ export interface UseFormResult<K extends TProperties> {
   readonly errors: ErrorsObject<K>
 }
 
-export const useForm = <K extends TProperties>(
+export const useForm = <K extends Schema>(
   validationSchema: K
 ): UseFormResult<typeof validationSchema> => {
   const validationSchemaObject = useMemo(() => {
@@ -78,7 +78,7 @@ export const useForm = <K extends TProperties>(
     return ajv.compile(validationSchemaObject)
   }, [validationSchemaObject])
 
-  const handleSubmit: HandleSubmit<typeof validationSchema> = (callback) => {
+  const handleUseForm: HandleUseForm<typeof validationSchema> = (callback) => {
     return async (formData, formElement) => {
       setErrors({} as any)
       setMessage(null)
@@ -103,30 +103,33 @@ export const useForm = <K extends TProperties>(
         setErrors(errors)
       } else {
         setErrors({} as any)
-        setFetchState('loading')
-        const message = await callback(
-          formData as Static<TObject<typeof validationSchema>>,
-          formElement
-        )
-        if (message != null) {
-          const { value = null, type, properties } = message
-          setMessage(value)
-          setFetchState(type)
-          if (type === 'error') {
-            const propertiesErrors: ErrorsObject<typeof validationSchema> =
-              {} as any
-            for (const property in properties) {
-              propertiesErrors[property] = [
-                {
-                  keyword: 'message',
-                  message: properties[property],
-                  instancePath: `/${property}`,
-                  schemaPath: `#/properties/${property}/message`,
-                  params: {}
-                }
-              ]
+        if (callback != null) {
+          setFetchState('loading')
+          const message = await callback(
+            formData as Static<TObject<typeof validationSchema>>,
+            formElement
+          )
+          if (message != null) {
+            const { value = null, type, properties } = message
+            setMessage(value)
+            setFetchState(type)
+            if (type === 'error') {
+              const propertiesErrors: ErrorsObject<typeof validationSchema> =
+                {} as any
+              for (const property in properties) {
+                propertiesErrors[property] = [
+                  {
+                    keyword: 'message',
+                    message: properties[property],
+                    instancePath: `/${property}`,
+                    schemaPath: `#/properties/${property}/message`,
+                    params: {},
+                    data: formData[property]
+                  }
+                ]
+              }
+              setErrors(propertiesErrors)
             }
-            setErrors(propertiesErrors)
           }
         }
       }
@@ -134,7 +137,7 @@ export const useForm = <K extends TProperties>(
   }
 
   return {
-    handleSubmit,
+    handleUseForm,
     fetchState,
     setFetchState,
     message,
