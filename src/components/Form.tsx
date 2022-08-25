@@ -9,7 +9,7 @@ export type HandleForm = (
   formElement: HTMLFormElement
 ) => void | Promise<void>
 
-export interface ReactFormProps
+interface ReactFormProps
   extends Omit<React.HTMLProps<HTMLFormElement>, 'onSubmit' | 'onChange'> {}
 
 export interface FormProps extends ReactFormProps {

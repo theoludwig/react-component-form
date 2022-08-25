@@ -22,7 +22,9 @@
 
 **react-component-form** is a lightweight form component for [React.js](https://reactjs.org/), it allows you to get the inputs values without state thanks to `onChange` or `onSubmit` props.
 
-Demo : [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
+There is also a [React Hooks](https://reactjs.org/docs/hooks-intro.html) to be used in combination with the `<Form />` component to validate the data with [Ajv JSON schema validator](https://ajv.js.org/), see [advanced usage](#%EF%B8%8F-advanced-usage).
+
+Demo: [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
 
 ## 💾 Install
 
@@ -32,9 +34,12 @@ npm install --save react-component-form
 
 ## ⚙️ Usage
 
+_Note : The examples use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
+
 ```tsx
 import React from 'react'
-import { Form, HandleForm } from 'react-component-form'
+import { Form } from 'react-component-form'
+import type { HandleForm } from 'react-component-form'
 
 const Example = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
@@ -51,14 +56,51 @@ const Example = () => {
 }
 ```
 
-_Note : The example use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
-
 Basically you have access to the same props of the HTML `form` tag in React, but the onSubmit and the onChange props are differents.
 
-Instead to get the `event` param you get `formData` and `formElement` params :
+Instead to get the `event` param you get `formData` and `formElement` parameters:
 
 - `formData`: It's an object where the keys are the name of your inputs and the current value. Behind the scene, it uses the [FormData](https://developer.mozilla.org/docs/Web/API/FormData) constructor.
 - `formElement`: It's the actual HTML form element in the DOM so for example you can access the `.reset()` method on a [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
+
+## ⚙️ Advanced Usage
+
+This example shows how to use the `<Form />` component with `useForm` hook to validate the data with [Ajv JSON schema validator](https://ajv.js.org/).
+
+You can see a more detailled example in the [./example](./example) folder.
+
+```tsx
+import React from 'react'
+import { Form, useForm } from 'react-component-form'
+import type { HandleSubmitCallback } from 'react-component-form'
+
+const schema = {
+  inputName: {
+    type: 'string',
+    required: true,
+    minLength: 3,
+    maxLength: 10
+  }
+}
+
+const Example = () => {
+  const { errors, handleSubmit } = useForm(schema)
+
+  const onSubmit: HandleSubmitCallback<typeof schema> = (formData, formElement) => {
+    console.log(formData) // { inputName: 'value of the input' }
+    formElement.reset()
+  }
+
+  return (
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <input type='text' name='inputName' />
+      {errors.inputName != null && <p>{errors.inputName[0].message}</p>}
+
+      <button type='submit'>Submit</button>
+    </Form>
+  )
+}
+```
 
 ## 💡 Contributing
 
