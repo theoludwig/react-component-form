@@ -7,7 +7,7 @@ import { useFormTranslation } from '../hooks/useFormTranslation'
 import { userSchema } from '../models/User'
 import { FormState } from './design/FormState'
 
-const wait = async (ms: number): Promise<void> => {
+const simulateServerRequest = async (ms: number): Promise<void> => {
   return await new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
@@ -22,12 +22,12 @@ export const FormExample: React.FC = () => {
     formData,
     formElement
   ) => {
-    await wait(4000)
+    await simulateServerRequest(4000)
     console.log('onSubmit:', formData)
     formElement.reset()
     return {
       type: 'success',
-      message: t('common:success')
+      value: 'common:success-message'
     }
   }
 
@@ -58,7 +58,12 @@ export const FormExample: React.FC = () => {
           Submit
         </Button>
       </Form>
-      <FormState id='message' state={fetchState} message={message} />
+
+      <FormState
+        id='message'
+        state={fetchState}
+        message={message != null ? t(message) : undefined}
+      />
     </section>
   )
 }

@@ -1,5 +1,5 @@
 {
-  "about": "This is an example of using <0>`react-component-form`</0> inside a Next.js application. The application shows how to use the <0>`{`<Form />`}`</0> component with the <0>`useForm`</0> hook to validate and submit a form with a <0>`name`</0> and an <0>`email`</0> input.",
+  "about": "This is an example of using <0>`react-component-form`</0> inside a Next.js application. The application shows how to use the <0>`<Form />`</0> component with the <0>`useForm`</0> hook to validate and submit a form with a <0>`name`</0> and an <0>`email`</0> input.",
   "name": "Name",
   "error": "Error",
   "success": "Success",
