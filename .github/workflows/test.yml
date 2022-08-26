@@ -45,4 +45,4 @@ jobs:
         run: 'cd example && npm install && npm run build'
 
       - name: 'End To End (e2e) Test Example'
-        run: 'npm run test:e2e'
+        run: 'cd example && npm run test:e2e'
