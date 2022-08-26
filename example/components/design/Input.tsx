@@ -24,8 +24,13 @@ export const Input: React.FC<InputProps> = (props) => {
           {...rest}
           id={name}
           name={name}
+          data-cy={`input-${name}`}
         />
-        <FormState state={error == null ? 'idle' : 'error'} message={error} />
+        <FormState
+          id={`error-${name ?? 'input'}`}
+          state={error == null ? 'idle' : 'error'}
+          message={error}
+        />
       </div>
     </div>
   )

@@ -23,3 +23,26 @@ jobs:
 
       - name: 'Test'
         run: 'npm run test'
+
+  test-e2e:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v3.0.0'
+
+      - name: 'Use Node.js'
+        uses: 'actions/setup-node@v3.1.0'
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: 'Install'
+        run: 'npm install'
+
+      - name: 'Build Package'
+        run: 'npm run build'
+
+      - name: 'Build Example'
+        run: 'cd example && npm install && npm run build'
+
+      - name: 'End To End (e2e) Test Example'
+        run: 'npm run test:e2e'

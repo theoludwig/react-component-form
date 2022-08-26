@@ -18,7 +18,7 @@ export const About: React.FC = () => {
         </Link>
       </h2>
 
-      <p className='max-w-lg mt-6 text-base'>
+      <p className='max-w-lg mt-6 text-base' data-cy='main-description'>
         <Translation
           i18nKey='common:about'
           components={[<TextSpecial key='special' />]}

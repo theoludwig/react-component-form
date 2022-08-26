@@ -22,7 +22,7 @@ export const FormExample: React.FC = () => {
     formData,
     formElement
   ) => {
-    await simulateServerRequest(4000)
+    await simulateServerRequest(2000)
     console.log('onSubmit:', formData)
     formElement.reset()
     return {
@@ -54,7 +54,7 @@ export const FormExample: React.FC = () => {
           error={getFirstErrorTranslation(errors.email)}
         />
 
-        <Button className='mt-6 w-full' type='submit'>
+        <Button className='mt-6 w-full' type='submit' data-cy='submit'>
           Submit
         </Button>
       </Form>
