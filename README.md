@@ -24,7 +24,7 @@
 
 There is also a [React Hooks](https://reactjs.org/docs/hooks-intro.html) to be used in combination with the `<Form />` component to validate the data with [Ajv JSON schema validator](https://ajv.js.org/), see [advanced usage](#%EF%B8%8F-advanced-usage).
 
-Demo: [https://react-component-form.vercel.app/](https://react-component-form.vercel.app/).
+Example demo: [https://react-component-form.vercel.app/](https://react-component-form.vercel.app/).
 
 ## 💾 Install
 
@@ -60,8 +60,8 @@ Basically you have access to the same props of the HTML `form` tag in React, but
 
 Instead to get the `event` param you get `formData` and `formElement` parameters:
 
-- `formData`: It's an object where the keys are the name of your inputs and the current value. Behind the scene, it uses the [FormData](https://developer.mozilla.org/docs/Web/API/FormData) constructor.
-- `formElement`: It's the actual HTML form element in the DOM so for example you can access the `.reset()` method on a [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
+- `formData`: Object where the keys are the name of your inputs and the current value. Behind the scene, it uses the [FormData](https://developer.mozilla.org/docs/Web/API/FormData) constructor.
+- `formElement`: The HTML form element in the DOM so for example you can access the `.reset()` method on a [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
 
 ## ⚙️ Advanced Usage
 
@@ -122,7 +122,7 @@ export const Example = () => {
 
 #### Returns
 
-- `handleUseForm(onSubmit)`: Function to be used with the `onSubmit` prop of the `<Form />` component.
+- `handleUseForm(onSubmit)`: Function to be used with the `onSubmit` or `onChange` prop of the `<Form />` component.
 - `fetchState = 'idle'`: The current state of the form (`'error' | 'success' | 'idle' | 'loading'`).
 - `setFetchState`: Function to update the `fetchState`.
 - `message`: Global message of the form (not specific to a property).

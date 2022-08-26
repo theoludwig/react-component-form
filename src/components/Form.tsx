@@ -4,6 +4,10 @@ export interface FormDataObject {
   [key: string]: FormDataEntryValue
 }
 
+/**
+ * @param formData Object where the keys are the name of your inputs and the current value.
+ * @param formElement The HTML form element in the DOM.
+ */
 export type HandleForm = (
   formData: FormDataObject,
   formElement: HTMLFormElement

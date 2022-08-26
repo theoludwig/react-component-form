@@ -16,10 +16,17 @@ export type ErrorsObject<K extends Schema> = {
   [key in keyof Partial<K>]: Error[] | undefined
 }
 
+export type HandleUseFormCallbackResult<K extends Schema> = Message<K> | null
+
+/**
+ * @param formData Object where the keys are the name of your inputs and the current value.
+ * @param formElement The HTML form element in the DOM.
+ * @returns The return can be either `null` or an object with a global message of type `'error' | 'success'`.
+ */
 export type HandleUseFormCallback<K extends Schema> = (
   formData: Static<TObject<K>>,
   formElement: HTMLFormElement
-) => Promise<Message<K> | null> | Message<K> | null
+) => Promise<HandleUseFormCallbackResult<K>> | HandleUseFormCallbackResult<K>
 
 export type HandleUseForm<K extends Schema> = (
   callback?: HandleUseFormCallback<K>
@@ -40,8 +47,14 @@ export interface PropertiesMessage<K extends Schema> {
 export type Message<K extends Schema> = GlobalMessage | PropertiesMessage<K>
 
 export interface UseFormResult<K extends Schema> {
+  /**
+   * Function to be used with the `onSubmit` or `onChange` prop of the `<Form />` component.
+   */
   handleUseForm: HandleUseForm<K>
 
+  /**
+   * The current state of the form.
+   */
   readonly fetchState: FetchState
   setFetchState: React.Dispatch<React.SetStateAction<FetchState>>
 
@@ -52,11 +65,13 @@ export interface UseFormResult<K extends Schema> {
   setMessage: React.Dispatch<React.SetStateAction<string | undefined>>
 
   /**
-   * Errors for each property.
+   * Object of errors:
+   *  - Key: correspond to a property in the JSON Schema.
+   *  - Value: array of {@link ErrorObject}.
    *
-   * The array will always have at least one element (never empty) in case of errors.
+   *    The array will always have at least one element (never empty) in case of errors.
    *
-   * `undefined` means no errors.
+   *    If the value is `undefined`, it means there are no errors for this property.
    */
   readonly errors: ErrorsObject<K>
 }
@@ -110,7 +125,7 @@ export const useForm = <K extends Schema>(
             formElement
           )
           if (message != null) {
-            const { value = undefined, type, properties } = message
+            const { value, type, properties } = message
             setMessage(value)
             setFetchState(type)
             if (type === 'error') {
