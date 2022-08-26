@@ -48,8 +48,8 @@ export interface UseFormResult<K extends Schema> {
   /**
    * Global message of the form (not specific to a property).
    */
-  readonly message: string | null
-  setMessage: React.Dispatch<React.SetStateAction<string | null>>
+  readonly message?: string
+  setMessage: React.Dispatch<React.SetStateAction<string | undefined>>
 
   /**
    * Errors for each property.
@@ -69,7 +69,7 @@ export const useForm = <K extends Schema>(
   }, [validationSchema])
 
   const [fetchState, setFetchState] = useFetchState()
-  const [message, setMessage] = useState<string | null>(null)
+  const [message, setMessage] = useState<string | undefined>(undefined)
   const [errors, setErrors] = useState<ErrorsObject<typeof validationSchema>>(
     {} as any
   )
@@ -81,7 +81,7 @@ export const useForm = <K extends Schema>(
   const handleUseForm: HandleUseForm<typeof validationSchema> = (callback) => {
     return async (formData, formElement) => {
       setErrors({} as any)
-      setMessage(null)
+      setMessage(undefined)
       formData = handleOptionalEmptyStringToNull(
         formData,
         validationSchemaObject.required
@@ -110,7 +110,7 @@ export const useForm = <K extends Schema>(
             formElement
           )
           if (message != null) {
-            const { value = null, type, properties } = message
+            const { value = undefined, type, properties } = message
             setMessage(value)
             setFetchState(type)
             if (type === 'error') {

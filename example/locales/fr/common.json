@@ -1,0 +1,15 @@
+{
+  "about": "Ceci est un exemple d'utilisation de <0>`react-component-form`</0> dans une application Next.js. L'application montre comment utiliser le composant <0>`{`<Form />`}`</0> avec le hook <0>`useForm`</0> hook pour valider et soumettre un formulaire avec un input `name` et `email`.",
+  "name": "Nom",
+  "error": "Erreur",
+  "success": "Succès",
+  "success-message": "Le formulaire a été envoyé.",
+  "page-not-found": "Cette page est introuvable.",
+  "server-error": "Erreur interne du serveur.",
+  "return-to-home-page": "Revenir à la page d'accueil ?",
+  "required": "Oups, ce champ est obligatoire 🙈.",
+  "minLength": "Le champ doit contenir au moins {expected} caractères.",
+  "maxLength": "Le champ doit contenir au plus {expected} caractères.",
+  "invalid-email": "Mmm… Il semblerait que cet email ne soit pas valide 🤔.",
+  "invalid": "Valeur invalide."
+}

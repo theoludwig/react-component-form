@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
-    "jsx": "react",
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "strict": true,
-    "esModuleInterop": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
