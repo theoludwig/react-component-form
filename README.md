@@ -24,7 +24,7 @@
 
 There is also a [React Hooks](https://reactjs.org/docs/hooks-intro.html) to be used in combination with the `<Form />` component to validate the data with [Ajv JSON schema validator](https://ajv.js.org/), see [advanced usage](#%EF%B8%8F-advanced-usage).
 
-Demo: [https://divlo.github.io/react-component-form/](https://divlo.github.io/react-component-form/).
+Demo: [https://react-component-form.vercel.app/](https://react-component-form.vercel.app/).
 
 ## 💾 Install
 
@@ -56,7 +56,7 @@ export const Example = () => {
 }
 ```
 
-Basically you have access to the same props of the HTML `form` tag in React, but the onSubmit and the onChange props are differents.
+Basically you have access to the same props of the HTML `form` tag in React, but the `onSubmit` and the `onChange` props are differents.
 
 Instead to get the `event` param you get `formData` and `formElement` parameters:
 
@@ -83,7 +83,7 @@ const schema = {
 }
 
 export const Example = () => {
-  const { errors, handleUseForm } = useForm(schema)
+  const { handleUseForm, errors, message } = useForm(schema)
 
   const onSubmit: HandleUseFormCallback<typeof schema> = (
     formData,
@@ -91,7 +91,12 @@ export const Example = () => {
   ) => {
     console.log(formData) // { inputName: 'value of the input validated' }
     formElement.reset()
-    return null
+
+    // The return can be either `null` or an object with a global message of type `'error' | 'success'`.
+    return {
+      type: 'success',
+      value: 'Success: Form submitted'
+    }
   }
 
   return (
@@ -100,10 +105,33 @@ export const Example = () => {
       {errors.inputName != null && <p>{errors.inputName[0].message}</p>}
 
       <button type='submit'>Submit</button>
+
+      {message != null && <p>{message}</p>}
     </Form>
   )
 }
 ```
+
+## API
+
+### `useForm(schema)`
+
+#### Parameters
+
+- `schema`: The JSON schema to validate the data (recommended to use [@sinclair/typebox](https://www.npmjs.com/package/@sinclair/typebox)).
+
+#### Returns
+
+- `handleUseForm(onSubmit)`: Function to be used with the `onSubmit` prop of the `<Form />` component.
+- `fetchState = 'idle'`: The current state of the form (`'error' | 'success' | 'idle' | 'loading'`).
+- `setFetchState`: Function to update the `fetchState`.
+- `message`: Global message of the form (not specific to a property).
+- `setMessage`: Function to update the `message`.
+- `errors`: Object of errors:
+  - Key: correspond to a property in the JSON Schema.
+  - Value: array of [ajv `ErrorObject`](https://ajv.js.org/api.html#error-objects).
+    The array will always have at least one element (never empty) in case of errors.
+    If the value is `undefined`, it means there are no errors for this property.
 
 ## 💡 Contributing
 
