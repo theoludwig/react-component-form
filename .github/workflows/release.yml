@@ -1,38 +1,38 @@
-name: 'Release'
+# name: 'Release'
 
-on:
-  push:
-    branches: [master]
+# on:
+#   push:
+#     branches: [master]
 
-jobs:
-  build:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: 'actions/checkout@v3.0.0'
+# jobs:
+#   build:
+#     runs-on: 'ubuntu-latest'
+#     steps:
+#       - uses: 'actions/checkout@v3.0.0'
 
-      - name: 'Use Node.js'
-        uses: 'actions/setup-node@v3.1.0'
-        with:
-          node-version: 'lts/*'
-          cache: 'npm'
+#       - name: 'Use Node.js'
+#         uses: 'actions/setup-node@v3.1.0'
+#         with:
+#           node-version: 'lts/*'
+#           cache: 'npm'
 
-      - name: 'Install'
-        run: 'npm install'
+#       - name: 'Install'
+#         run: 'npm install'
 
-      - name: 'Build Package'
-        run: 'npm run build'
+#       - name: 'Build Package'
+#         run: 'npm run build'
 
-      - name: 'Build Example'
-        run: 'cd example && npm install && npm run build'
+#       - name: 'Build Example'
+#         run: 'cd example && npm install && npm run build'
 
-      - name: 'Deploy Example'
-        uses: 'JamesIves/github-pages-deploy-action@v4.3.0'
-        with:
-          branch: 'gh-pages'
-          folder: 'example/dist'
+#       - name: 'Deploy Example'
+#         uses: 'JamesIves/github-pages-deploy-action@v4.3.0'
+#         with:
+#           branch: 'gh-pages'
+#           folder: 'example/dist'
 
-      - name: 'Release'
-        run: 'npm run release'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#       - name: 'Release'
+#         run: 'npm run release'
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
