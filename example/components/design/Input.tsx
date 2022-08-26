@@ -24,7 +24,7 @@ export const Input: React.FC<InputProps> = (props) => {
           {...rest}
           id={name}
           name={name}
-          data-cy={`input-${name}`}
+          data-cy={`input-${name ?? 'name'}`}
         />
         <FormState
           id={`error-${name ?? 'input'}`}
