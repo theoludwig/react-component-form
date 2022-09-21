@@ -1,4 +1,5 @@
-import { Form, HandleUseFormCallback, useForm } from 'react-component-form'
+import { Form, useForm } from 'react-component-form'
+import type { HandleUseFormCallback } from 'react-component-form'
 import useTranslation from 'next-translate/useTranslation'
 
 import { Input } from './design/Input'
