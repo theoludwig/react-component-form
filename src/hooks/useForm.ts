@@ -1,14 +1,18 @@
 import { useMemo, useState } from 'react'
-import { SchemaOptions, Static, TObject, Type } from '@sinclair/typebox'
+import type { Static, TObject } from '@sinclair/typebox'
+import { Type } from '@sinclair/typebox'
 import type { ErrorObject } from 'ajv'
 
 import type { HandleForm } from '../components/Form'
-import { FetchState, useFetchState } from './useFetchState'
+import type { FetchState } from './useFetchState'
+import { useFetchState } from './useFetchState'
 import { ajv } from '../utils/ajv'
 import { handleCheckboxBoolean } from '../utils/handleCheckboxBoolean'
 import { handleOptionalEmptyStringToNull } from '../utils/handleOptionalEmptyStringToNull'
 
-export type Schema = SchemaOptions
+export interface Schema {
+  [property: string]: any
+}
 
 export type Error = ErrorObject
 

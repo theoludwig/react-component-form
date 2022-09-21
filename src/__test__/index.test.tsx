@@ -1,7 +1,8 @@
 import React from 'react'
 import { render, cleanup, fireEvent } from '@testing-library/react'
 
-import { Form, HandleForm } from '..'
+import type { HandleForm } from '..'
+import { Form } from '..'
 
 afterEach(cleanup)
 
