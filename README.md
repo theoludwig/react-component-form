@@ -34,7 +34,7 @@ npm install --save react-component-form
 
 ## ⚙️ Usage
 
-_Note : The examples use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
+_Note: The examples use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
 
 ```tsx
 import React from 'react'
