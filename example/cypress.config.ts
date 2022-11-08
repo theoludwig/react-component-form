@@ -5,7 +5,6 @@ export default defineConfig({
   video: false,
   downloadsFolder: undefined,
   screenshotOnRunFailure: false,
-
   e2e: {
     baseUrl: 'http://localhost:3000',
     supportFile: false
