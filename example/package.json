@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:e2e": "start-server-and-test \"start\" \"http://localhost:3000\" \"cypress run\"",
-    "test:dev": "start-server-and-test \"dev\" \"http://localhost:3000\" \"cypress open\""
+    "test:e2e": "start-server-and-test \"start\" \"http://127.0.0.1:3000\" \"cypress run\"",
+    "test:dev": "start-server-and-test \"dev\" \"http://127.0.0.1:3000\" \"cypress open\""
   },
   "dependencies": {
     "@sinclair/typebox": "0.25.3",
