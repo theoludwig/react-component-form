@@ -65,7 +65,7 @@ export interface UseFormResult<K extends Schema> {
   /**
    * Global message of the form (not specific to a property).
    */
-  readonly message?: string
+  readonly message: string | undefined
   setMessage: React.Dispatch<React.SetStateAction<string | undefined>>
 
   /**
