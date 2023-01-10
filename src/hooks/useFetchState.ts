@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export const fetchState = ['idle', 'loading', 'error', 'success'] as const
 
-export type FetchState = typeof fetchState[number]
+export type FetchState = (typeof fetchState)[number]
 
 export const useFetchState = (
   initialFetchState: FetchState = 'idle'
