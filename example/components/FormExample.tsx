@@ -23,12 +23,12 @@ export const FormExample: React.FC = () => {
     formData,
     formElement
   ) => {
-    await simulateServerRequest(2000)
+    await simulateServerRequest(2_000)
     console.log('onSubmit:', formData)
     formElement.reset()
     return {
       type: 'success',
-      value: 'common:success-message'
+      message: 'common:success-message'
     }
   }
 

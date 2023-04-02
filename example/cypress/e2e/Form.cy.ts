@@ -3,7 +3,7 @@ describe('Form', () => {
     cy.visit('/')
   })
 
-  it('suceeds, reset input values and display the global success message', () => {
+  it('succeeds, reset input values and display the global success message', () => {
     cy.get('[data-cy=input-name]').type('John')
     cy.get('[data-cy=input-email]').type('john@john.com')
     cy.get('#error-name').should('not.exist')

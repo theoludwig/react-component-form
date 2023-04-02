@@ -89,13 +89,13 @@ export const Example = () => {
     formData,
     formElement
   ) => {
-    console.log(formData) // { inputName: 'value of the input validated' }
+    console.log(formData) // { inputName: 'value of the input validated and type-safe' }
     formElement.reset()
 
     // The return can be either `null` or an object with a global message of type `'error' | 'success'`.
     return {
       type: 'success',
-      value: 'Success: Form submitted'
+      message: 'Success: Form submitted'
     }
   }
 

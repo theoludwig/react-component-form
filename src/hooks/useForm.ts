@@ -38,13 +38,13 @@ export type HandleUseForm<K extends Schema> = (
 
 export interface GlobalMessage {
   type: 'error' | 'success'
-  value?: string
+  message?: string
   properties?: undefined
 }
 
 export interface PropertiesMessage<K extends Schema> {
   type: 'error'
-  value?: string
+  message?: string
   properties: { [key in keyof Partial<K>]: string }
 }
 
@@ -129,8 +129,8 @@ export const useForm = <K extends Schema>(
             formElement
           )
           if (message != null) {
-            const { value, type, properties } = message
-            setMessage(value)
+            const { message: messageValue, type, properties } = message
+            setMessage(messageValue)
             setFetchState(type)
             if (type === 'error') {
               const propertiesErrors: ErrorsObject<typeof validationSchema> =
