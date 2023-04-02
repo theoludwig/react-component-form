@@ -1,11 +1,11 @@
 import type { TObject } from '@sinclair/typebox'
 
-import type { ObjectAny } from './types'
+import type { Schema } from '../hooks/useForm'
 
 export const handleCheckboxBoolean = (
-  object: ObjectAny,
-  validateSchemaObject: TObject<ObjectAny>
-): ObjectAny => {
+  object: Schema,
+  validateSchemaObject: TObject<Schema>
+): Schema => {
   const booleanProperties: string[] = []
   for (const property in validateSchemaObject.properties) {
     const rule = validateSchemaObject.properties[property]

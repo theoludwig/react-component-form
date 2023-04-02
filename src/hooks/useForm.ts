@@ -11,7 +11,7 @@ import { handleCheckboxBoolean } from '../utils/handleCheckboxBoolean'
 import { handleOptionalEmptyStringToNull } from '../utils/handleOptionalEmptyStringToNull'
 
 export interface Schema {
-  [property: string]: any
+  [property: string | symbol]: any
 }
 
 export type Error = ErrorObject

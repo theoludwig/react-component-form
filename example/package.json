@@ -11,27 +11,28 @@
     "test:dev": "start-server-and-test \"dev\" \"http://127.0.0.1:3000\" \"cypress open\""
   },
   "dependencies": {
-    "@sinclair/typebox": "0.25.20",
+    "@sinclair/typebox": "0.26.8",
     "clsx": "1.2.1",
-    "next": "13.1.1",
+    "next": "13.2.4",
     "next-themes": "0.2.1",
-    "next-translate": "1.6.0",
+    "next-translate": "2.0.4",
     "react": "18.2.0",
     "react-component-form": "file:..",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@tsconfig/strictest": "1.0.2",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "autoprefixer": "10.4.13",
-    "cypress": "12.3.0",
-    "eslint": "8.31.0",
-    "eslint-config-next": "13.1.1",
+    "@tsconfig/strictest": "2.0.0",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.32",
+    "@types/react-dom": "18.0.11",
+    "autoprefixer": "10.4.14",
+    "cypress": "12.9.0",
+    "eslint": "8.37.0",
+    "eslint-config-next": "13.2.4",
+    "next-translate-plugin": "2.0.4",
     "postcss": "8.4.21",
-    "start-server-and-test": "1.15.2",
-    "tailwindcss": "3.2.4",
-    "typescript": "4.9.4"
+    "start-server-and-test": "2.0.0",
+    "tailwindcss": "3.3.1",
+    "typescript": "5.0.3"
   }
 }

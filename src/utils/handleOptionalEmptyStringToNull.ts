@@ -1,4 +1,6 @@
-export const handleOptionalEmptyStringToNull = <K>(
+import type { Schema } from '../hooks/useForm'
+
+export const handleOptionalEmptyStringToNull = <K extends Schema>(
   object: K,
   required: string[] = []
 ): K => {
