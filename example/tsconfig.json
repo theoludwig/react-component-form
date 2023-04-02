@@ -3,15 +3,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ESNext"
-    ],
+    "lib": ["dom", "dom.iterable", "ESNext"],
     "allowJs": true,
-    "types": [
-      "cypress"
-    ],
+    "types": ["cypress"],
     "noEmit": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -21,12 +15,6 @@
     "verbatimModuleSyntax": false,
     "isolatedModules": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
