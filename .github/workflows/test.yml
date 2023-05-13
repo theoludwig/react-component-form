@@ -10,16 +10,16 @@ jobs:
   test:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v3.5.0'
+      - uses: 'actions/checkout@v3.5.2'
 
-      - name: 'Use Node.js'
+      - name: 'Setup Node.js'
         uses: 'actions/setup-node@v3.6.0'
         with:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: 'Install'
-        run: 'npm install'
+      - name: 'Install dependencies'
+        run: 'npm clean-install'
 
       - name: 'Test'
         run: 'npm run test'
@@ -27,22 +27,22 @@ jobs:
   test-e2e:
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: 'actions/checkout@v3.5.0'
+      - uses: 'actions/checkout@v3.5.2'
 
-      - name: 'Use Node.js'
+      - name: 'Setup Node.js'
         uses: 'actions/setup-node@v3.6.0'
         with:
           node-version: 'lts/*'
           cache: 'npm'
 
-      - name: 'Install'
-        run: 'npm install'
+      - name: 'Install dependencies'
+        run: 'npm clean-install'
 
       - name: 'Build Package'
         run: 'npm run build'
 
       - name: 'Build Example'
-        run: 'cd example && npm install && npm run build'
+        run: 'cd example && npm clean-install && npm run build'
 
       - name: 'End To End (e2e) Test Example'
         run: 'cd example && npm run test:e2e'
