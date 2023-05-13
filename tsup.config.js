@@ -1,12 +1,13 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['src/index.ts'],
-  sourcemap: true,
+  entry: ['src/**/*.{ts,tsx}', '!src/**/*.test.{ts,tsx}'],
+  sourcemap: false,
   clean: true,
   platform: 'browser',
   target: 'esnext',
   format: ['esm'],
-  minify: true,
+  minify: false,
+  outDir: 'build',
   dts: true
 })

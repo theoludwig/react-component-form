@@ -1,3 +1,5 @@
+'use client'
+
 import { Form, useForm } from 'react-component-form'
 import type { HandleUseFormCallback } from 'react-component-form'
 import useTranslation from 'next-translate/useTranslation'
@@ -8,7 +10,7 @@ import { useFormTranslation } from '../hooks/useFormTranslation'
 import { userSchema } from '../models/User'
 import { FormState } from './design/FormState'
 
-const simulateServerRequest = async (ms: number): Promise<void> => {
+const fakeServerRequest = async (ms: number): Promise<void> => {
   return await new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
@@ -23,7 +25,7 @@ export const FormExample: React.FC = () => {
     formData,
     formElement
   ) => {
-    await simulateServerRequest(2_000)
+    await fakeServerRequest(2_000)
     console.log('onSubmit:', formData)
     formElement.reset()
     return {

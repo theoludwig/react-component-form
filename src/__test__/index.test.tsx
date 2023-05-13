@@ -29,14 +29,14 @@ describe('<Form />', () => {
     const text = 'some random text'
 
     fireEvent.change(inputForm, { target: { value: text } })
-    expect(formData.inputName).toEqual(text)
+    expect(formData['inputName']).toEqual(text)
     expect(formElement instanceof HTMLFormElement).toBeTruthy()
     formData = {}
     formElement = null
 
     fireEvent.click(buttonSubmit)
     expect(Object.keys(formData).length).toEqual(1)
-    expect(formData.inputName).toEqual(text)
+    expect(formData['inputName']).toEqual(text)
     expect(formElement instanceof HTMLFormElement).toBeTruthy()
   })
 })
