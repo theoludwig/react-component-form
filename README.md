@@ -37,9 +37,9 @@ npm install --save react-component-form
 _Note: The examples use TypeScript, but obviously you can use JavaScript. Be aware that `HandleForm` is the type definition for the `onChange` and `onSubmit` props._
 
 ```tsx
-import React from 'react'
-import { Form } from 'react-component-form'
-import type { HandleForm } from 'react-component-form'
+import React from "react"
+import { Form } from "react-component-form"
+import type { HandleForm } from "react-component-form"
 
 export const Example = () => {
   const handleSubmit: HandleForm = (formData, formElement) => {
@@ -49,8 +49,8 @@ export const Example = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <input type='text' name='inputName' />
-      <button type='submit'>Submit</button>
+      <input type="text" name="inputName" />
+      <button type="submit">Submit</button>
     </Form>
   )
 }
@@ -70,16 +70,16 @@ This example shows how to use the `<Form />` component with `useForm` hook to va
 You can see a more detailled example in the [./example](./example) folder.
 
 ```tsx
-import React from 'react'
-import { Form, useForm } from 'react-component-form'
-import type { HandleUseFormCallback } from 'react-component-form'
+import React from "react"
+import { Form, useForm } from "react-component-form"
+import type { HandleUseFormCallback } from "react-component-form"
 
 const schema = {
   inputName: {
-    type: 'string',
+    type: "string",
     minLength: 3,
-    maxLength: 20
-  }
+    maxLength: 20,
+  },
 }
 
 export const Example = () => {
@@ -87,24 +87,24 @@ export const Example = () => {
 
   const onSubmit: HandleUseFormCallback<typeof schema> = (
     formData,
-    formElement
+    formElement,
   ) => {
     console.log(formData) // { inputName: 'value of the input validated and type-safe' }
     formElement.reset()
 
     // The return can be either `null` or an object with a global message of type `'error' | 'success'`.
     return {
-      type: 'success',
-      message: 'Success: Form submitted'
+      type: "success",
+      message: "Success: Form submitted",
     }
   }
 
   return (
     <Form onSubmit={handleUseForm(onSubmit)}>
-      <input type='text' name='inputName' />
+      <input type="text" name="inputName" />
       {errors.inputName != null && <p>{errors.inputName[0].message}</p>}
 
-      <button type='submit'>Submit</button>
+      <button type="submit">Submit</button>
 
       {message != null && <p>{message}</p>}
     </Form>

@@ -1,13 +1,13 @@
-import React from 'react'
-import { render, cleanup, fireEvent } from '@testing-library/react'
+import React from "react"
+import { render, cleanup, fireEvent } from "@testing-library/react"
 
-import type { HandleForm } from '..'
-import { Form } from '..'
+import type { HandleForm } from ".."
+import { Form } from ".."
 
 afterEach(cleanup)
 
-describe('<Form />', () => {
-  it('should get the formData and formElement onSubmit and onChange', () => {
+describe("<Form />", () => {
+  it("should get the formData and formElement onSubmit and onChange", () => {
     let formData: { [k: string]: any } = {}
     let formElement: any = null
     const handleSubmitChange: HandleForm = (data, element) => {
@@ -16,27 +16,27 @@ describe('<Form />', () => {
     }
     const formComponent = render(
       <Form onSubmit={handleSubmitChange} onChange={handleSubmitChange}>
-        <input data-testid='input-form' type='text' name='inputName' />
-        <button data-testid='button-submit' type='submit'>
+        <input data-testid="input-form" type="text" name="inputName" />
+        <button data-testid="button-submit" type="submit">
           Submit
         </button>
-      </Form>
+      </Form>,
     )
     const inputForm = formComponent.getByTestId(
-      'input-form'
+      "input-form",
     ) as HTMLInputElement
-    const buttonSubmit = formComponent.getByTestId('button-submit')
-    const text = 'some random text'
+    const buttonSubmit = formComponent.getByTestId("button-submit")
+    const text = "some random text"
 
     fireEvent.change(inputForm, { target: { value: text } })
-    expect(formData['inputName']).toEqual(text)
+    expect(formData["inputName"]).toEqual(text)
     expect(formElement instanceof HTMLFormElement).toBeTruthy()
     formData = {}
     formElement = null
 
     fireEvent.click(buttonSubmit)
     expect(Object.keys(formData).length).toEqual(1)
-    expect(formData['inputName']).toEqual(text)
+    expect(formData["inputName"]).toEqual(text)
     expect(formElement instanceof HTMLFormElement).toBeTruthy()
   })
 })

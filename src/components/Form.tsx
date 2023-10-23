@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef } from "react"
 
 export interface FormDataObject {
   [key: string]: FormDataEntryValue
@@ -10,11 +10,11 @@ export interface FormDataObject {
  */
 export type HandleForm = (
   formData: FormDataObject,
-  formElement: HTMLFormElement
+  formElement: HTMLFormElement,
 ) => void | Promise<void>
 
 interface ReactFormProps
-  extends Omit<React.HTMLProps<HTMLFormElement>, 'onSubmit' | 'onChange'> {}
+  extends Omit<React.HTMLProps<HTMLFormElement>, "onSubmit" | "onChange"> {}
 
 export interface FormProps extends ReactFormProps {
   onSubmit?: HandleForm
@@ -22,7 +22,7 @@ export interface FormProps extends ReactFormProps {
 }
 
 export const getFormDataObject = (
-  formElement: HTMLFormElement
+  formElement: HTMLFormElement,
 ): FormDataObject => {
   return Object.fromEntries<FormDataEntryValue>(new FormData(formElement))
 }

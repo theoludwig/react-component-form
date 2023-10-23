@@ -1,4 +1,4 @@
-name: 'Test'
+name: "Test"
 
 on:
   push:
@@ -8,41 +8,41 @@ on:
 
 jobs:
   test:
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: 'actions/checkout@v3.5.3'
+      - uses: "actions/checkout@v3.5.3"
 
-      - name: 'Setup Node.js'
-        uses: 'actions/setup-node@v3.6.0'
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v3.6.0"
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
+          node-version: "lts/*"
+          cache: "npm"
 
-      - name: 'Install dependencies'
-        run: 'npm clean-install'
+      - name: "Install dependencies"
+        run: "npm clean-install"
 
-      - name: 'Test'
-        run: 'npm run test'
+      - name: "Test"
+        run: "npm run test"
 
   test-e2e:
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: 'actions/checkout@v3.5.3'
+      - uses: "actions/checkout@v3.5.3"
 
-      - name: 'Setup Node.js'
-        uses: 'actions/setup-node@v3.6.0'
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v3.6.0"
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
+          node-version: "lts/*"
+          cache: "npm"
 
-      - name: 'Install dependencies'
-        run: 'npm clean-install'
+      - name: "Install dependencies"
+        run: "npm clean-install"
 
-      - name: 'Build Package'
-        run: 'npm run build'
+      - name: "Build Package"
+        run: "npm run build"
 
-      - name: 'Build Example'
-        run: 'cd example && npm clean-install && npm run build'
+      - name: "Build Example"
+        run: "cd example && npm clean-install && npm run build"
 
-      - name: 'End To End (e2e) Test Example'
-        run: 'cd example && npm run test:e2e'
+      - name: "End To End (e2e) Test Example"
+        run: "cd example && npm run test:e2e"
