@@ -7,10 +7,10 @@ export interface LoaderProps {
 }
 
 export const Loader: React.FC<LoaderProps> = (props) => {
-  const { width = 50, height = 50 } = props
+  const { width = 50, height = 50, className } = props
 
   return (
-    <div className={props.className}>
+    <div className={className}>
       <div
         data-cy="progress-spinner"
         className="relative my-0 mx-auto before:content-none before:block before:pt-[100%]"

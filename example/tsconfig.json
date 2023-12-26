@@ -5,6 +5,7 @@
     "module": "ESNext",
     "lib": ["dom", "dom.iterable", "ESNext"],
     "allowJs": true,
+    "baseUrl": ".",
     "types": ["cypress"],
     "noEmit": true,
     "moduleResolution": "node",
