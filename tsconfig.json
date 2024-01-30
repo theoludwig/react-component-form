@@ -10,6 +10,6 @@
     "rootDir": "./src",
     "moduleResolution": "node",
     "jsx": "react",
-    "noEmit": true
-  }
+    "noEmit": true,
+  },
 }
